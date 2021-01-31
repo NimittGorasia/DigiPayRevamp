@@ -30,16 +30,13 @@ public class GenUsers implements Serializable {
 
 	private String email;
 
-	@Column(name="first_name")
-	private String firstName;
+	@Column(name="user_name")
+	private String userName;
 
 	private String isactive;
 
 	@Column(name="last_login")
 	private Date lastLogin;
-
-	@Column(name="last_name")
-	private String lastName;
 
 	private String password;
 
@@ -73,12 +70,12 @@ public class GenUsers implements Serializable {
 		this.email = email;
 	}
 
-	public String getFirstName() {
-		return this.firstName;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getIsactive() {
@@ -95,14 +92,6 @@ public class GenUsers implements Serializable {
 
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
-	}
-
-	public String getLastName() {
-		return this.lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public String getPassword() {

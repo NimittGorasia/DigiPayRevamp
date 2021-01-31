@@ -1,5 +1,7 @@
 package com.Digipaywallet.DigiPayWalletRevamp.dao;
 
-public interface SignUpDao {
+import com.Digipaywallet.DigiPayWalletRevamp.vo.UsersVO;
 
+public interface SignUpDao {
+	public boolean saveUserOnSignUp(UsersVO usersVO) throws Exception;
 }
