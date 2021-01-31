@@ -1,0 +1,48 @@
+<div class="signup-form">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+		<h2>Create Account</h2>
+    <p class="lead">DigiPay - Secure way for money transfer</p>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input type="text" class="form-control" formControlName="userName" name="username" placeholder="User Name">
+        </div>
+        <span *ngIf="!signUpForm.get('userName').valid && signUpForm.get('userName').touched">Enter valid username!</span>
+      </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input type="text" class="form-control" formControlName="contact" name="contact" placeholder="Contact">
+          </div>
+          <span *ngIf="!signUpForm.get('contact').valid && signUpForm.get('contact').touched">Enter valid contact!</span>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+            <input type="email" class="form-control" formControlName="email" name="email" placeholder="Email Address(Optional)">
+          </div>
+        </div>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <input type="text" class="form-control" formControlName="password" name="password" placeholder="Password">
+      </div>
+      <span *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').touched">Password isn't valid</span>
+        </div>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-lock"></i>
+					<i class="fa fa-check"></i>
+				</span>
+        <input type="text" class="form-control" formControlName="confirm_password" name="confirm_password" placeholder="Confirm Password">
+      </div>
+      <span *ngIf="!signUpForm.get('confirm_password').valid && signUpForm.get('confirm_password').touched">Confirm password isn't valid</span>
+        </div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" [disabled]="signUpForm.invalid">Sign Up</button>
+        </div>
+		<p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+    </form>
+	<div class="text-center">Already have an account? <a href="#">Login here</a>.</div>
+</div>
