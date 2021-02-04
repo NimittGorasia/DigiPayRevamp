@@ -15,11 +15,13 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
-      'userName': new FormControl(null, [Validators.required]),
-      'contact': new FormControl(null, [Validators.required]),
-      'email': new FormControl(null,[Validators.email]),
-      'password': new FormControl(null, [Validators.required,Validators.maxLength(8)]),
+      'firstName': new FormControl(null, [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z]+$')]),
+      'lastName': new FormControl(null, [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z]+$')]),
+      'contact': new FormControl(null, [Validators.required, Validators.pattern('^[0-9]{10}$')]),
+      'email': new FormControl(null,[Validators.required,Validators.email]),
+      'password': new FormControl(null, [Validators.required,Validators.minLength(8)]),
       'confirm_password': new FormControl(null, [Validators.required])
+      // 'recaptcha': new FormControl(['', Validators.required])
     });
   }
 
@@ -32,7 +34,15 @@ export class SignupComponent implements OnInit {
       return;
     }
     console.log(this.signUpForm.value);
-    this.signUpService.signUp(this.signUpForm.value).subscribe(res => {
+
+    let obj = {};
+    obj['firstName'] = this.signUpForm.get('firstName').value;
+    obj['lastName'] = this.signUpForm.get('lastName').value;
+    obj['contact'] = this.signUpForm.get('contact').value;
+    obj['email'] = this.signUpForm.get('email').value;
+    obj['password'] = this.signUpForm.get('password').value;
+
+    this.signUpService.signUp(JSON.parse(JSON.stringify(obj))).subscribe(res => {
       console.log('success', res);
     }, err => {
       console.log('error occured');

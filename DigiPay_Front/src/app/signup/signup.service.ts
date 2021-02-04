@@ -14,4 +14,5 @@ export class SignupService {
     console.log('In service:', data);
     return this.http.post(this.url, data);
   }
+
 }

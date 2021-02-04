@@ -3,11 +3,19 @@
 		<h2>Create Account</h2>
     <p class="lead">DigiPay - Secure way for money transfer</p>
       <div class="form-group">
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input type="text" class="form-control" formControlName="userName" name="username" placeholder="User Name">
+        <div style="display: flex;">
+          <div class="input-group" style="width: 50%;margin-right: 2%;">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input type="text" class="form-control" formControlName="firstName" name="username" placeholder="First Name">
+          </div>
+          <div class="input-group" style="width: 50%;">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input type="text" class="form-control" formControlName="lastName" name="username" placeholder="Last Name">
+          </div>
         </div>
-        <span *ngIf="!signUpForm.get('userName').valid && signUpForm.get('userName').touched">Enter valid username!</span>
+
+        <span style="margin-right: 2%;" *ngIf="!signUpForm.get('firstName').valid && signUpForm.get('firstName').touched">Enter valid first name!</span>
+        <span *ngIf="!signUpForm.get('lastName').valid && signUpForm.get('lastName').touched">Enter valid last name!</span>
       </div>
         <div class="form-group">
           <div class="input-group">
@@ -19,13 +27,14 @@
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-            <input type="email" class="form-control" formControlName="email" name="email" placeholder="Email Address(Optional)">
+            <input type="email" class="form-control" formControlName="email" name="email" placeholder="Email Address">
           </div>
+          <span *ngIf="!signUpForm.get('email').valid && signUpForm.get('email').touched">Enter valid email address!</span>
         </div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <input type="text" class="form-control" formControlName="password" name="password" placeholder="Password">
+        <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password">
       </div>
       <span *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').touched">Password isn't valid</span>
         </div>
@@ -35,7 +44,7 @@
 					<i class="fa fa-lock"></i>
 					<i class="fa fa-check"></i>
 				</span>
-        <input type="text" class="form-control" formControlName="confirm_password" name="confirm_password" placeholder="Confirm Password">
+        <input type="password" class="form-control" formControlName="confirm_password" name="confirm_password" placeholder="Confirm Password">
       </div>
       <span *ngIf="!signUpForm.get('confirm_password').valid && signUpForm.get('confirm_password').touched">Confirm password isn't valid</span>
         </div>
