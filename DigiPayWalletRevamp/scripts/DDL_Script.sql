@@ -9,3 +9,5 @@ CREATE TABLE gen_users (
 	isActive VARCHAR ( 1 ) NOT NULL, 
     last_login TIMESTAMP 
 );
+
+alter table gen_users alter column password type character varying(70)

@@ -6,8 +6,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -22,6 +25,8 @@ public class GenUsers implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_generator")
+	@SequenceGenerator(name="user_generator",sequenceName = "gen_users_seq", allocationSize = 1)
 	@Column(name="users_id")
 	private long usersId;
 
@@ -40,7 +45,7 @@ public class GenUsers implements Serializable {
 
 	private String password;
 
-	private int phone;
+	private long phone;
 
 	public GenUsers() {
 		// empty constructor
@@ -102,11 +107,11 @@ public class GenUsers implements Serializable {
 		this.password = password;
 	}
 
-	public int getPhone() {
+	public long getPhone() {
 		return this.phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 
