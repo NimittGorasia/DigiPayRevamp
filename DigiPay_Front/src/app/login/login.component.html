@@ -1,0 +1,25 @@
+<div class="signup-form">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <h2>Login</h2>
+  <p class="lead">DigiPay - Secure way for money transfer</p>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+          <input type="text" class="form-control" formControlName="username" name="username" placeholder="Contact" step="0">
+        </div>
+        <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Enter valid contact!</span>
+      </div>
+      <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input type="password" class="form-control" formControlName="password" name="password" placeholder="Password">
+          </div>
+          <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Password isn't valid</span>
+          </div>
+    <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" [disabled]="loginForm.invalid">Sign Up</button>
+    </div>
+  <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a [routerLink]="['/terms-conditions']">Terms &amp; Conditions</a>, and <a [routerLink]="['/privacy-notice']">Privacy Policy</a>.</p>
+  </form>
+<div class="text-center">New to DigiPay? <a [routerLink]="['/signup']">Register here</a>.</div>
+</div>

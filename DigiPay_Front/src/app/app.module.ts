@@ -8,18 +8,26 @@ import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './utils/interceptor.service';
+import { LoginComponent } from './login/login.component';
+import { PrivacyPolicyComponent } from './policy-docs/privacy-policy/privacy-policy.component';
+import { TermsConditionComponent } from './policy-docs/terms-condition/terms-condition.component';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent,
+    PrivacyPolicyComponent,
+    TermsConditionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RecaptchaModule
   ],
   providers: [
     {
