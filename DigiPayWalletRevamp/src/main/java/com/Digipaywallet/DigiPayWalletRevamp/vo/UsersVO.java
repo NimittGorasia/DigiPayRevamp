@@ -1,7 +1,19 @@
 package com.Digipaywallet.DigiPayWalletRevamp.vo;
 
-public class UsersVO {
-	private String userName;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+public class UsersVO implements UserDetails{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String firstName;
+	
+	private String lastName;
 	
 	private String password;
 	
@@ -11,7 +23,7 @@ public class UsersVO {
 	
 	private String statusCode;
 	
-	private String Message;
+	private String message;
 
 	public String getStatusCode() {
 		return statusCode;
@@ -22,31 +34,24 @@ public class UsersVO {
 	}
 
 	public String getMessage() {
-		return Message;
+		return message;
 	}
 
 	public void setMessage(String message) {
-		Message = message;
+		this.message = message;
 	}
-
-	public UsersVO(String userName, String password, String contact, String email) {
-		this.userName = userName;
+	
+	public UsersVO(String firstName, String lastName, String password, String contact, String email, String statusCode,
+			String message) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.password = password;
 		this.contact = contact;
 		this.email = email;
 	}
-	
+
 	public UsersVO() {
-		
-	}
-	
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+		// default constructor for vo 
 	}
 
 	public String getPassword() {
@@ -71,5 +76,57 @@ public class UsersVO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

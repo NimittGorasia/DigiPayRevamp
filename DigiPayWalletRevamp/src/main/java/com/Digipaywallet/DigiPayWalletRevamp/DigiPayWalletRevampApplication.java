@@ -9,5 +9,4 @@ public class DigiPayWalletRevampApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DigiPayWalletRevampApplication.class, args);
 	}
-
 }

@@ -22,6 +22,7 @@ import javax.persistence.Table;
 @Table(name="gen_users")
 @NamedQuery(name="GenUsers.findAll", query="SELECT g FROM GenUsers g")
 public class GenUsers implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -35,8 +36,8 @@ public class GenUsers implements Serializable {
 
 	private String email;
 
-	@Column(name="user_name")
-	private String userName;
+	@Column(name="first_name")
+	private String firstName;
 
 	private String isactive;
 
@@ -46,7 +47,10 @@ public class GenUsers implements Serializable {
 	private String password;
 
 	private long phone;
-
+	
+	@Column(name="last_name")
+	private String lastName;
+	
 	public GenUsers() {
 		// empty constructor
 	}
@@ -75,12 +79,12 @@ public class GenUsers implements Serializable {
 		this.email = email;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getIsactive() {
@@ -113,6 +117,14 @@ public class GenUsers implements Serializable {
 
 	public void setPhone(long phone) {
 		this.phone = phone;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 }
