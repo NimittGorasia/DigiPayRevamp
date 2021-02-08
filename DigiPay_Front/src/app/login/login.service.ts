@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
 
-  constructor() { }
+  private url = '';
+  constructor(private http: HttpClient) { }
+
+  login(data: JSON) {
+    this.url='http://localhost:8082/api/login/authenticate';
+    console.log('In service:', data);
+    return this.http.post(this.url, data);
+  }
+
 }

@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid) {
       return;
     }
+    this.loginService.login(this.loginForm.value).subscribe(token => {
+      console.log('Token:',token);
+    });
     console.log(this.loginForm.value);
   }
 }
