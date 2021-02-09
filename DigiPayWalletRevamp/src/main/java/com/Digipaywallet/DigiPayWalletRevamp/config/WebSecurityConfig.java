@@ -3,6 +3,7 @@ package com.Digipaywallet.DigiPayWalletRevamp.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -63,5 +64,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Add a filter to validate the tokens with every request
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+	}
+	
+	@Bean
+	public SimpleMailMessage templateSimpleMessage() {
+	    SimpleMailMessage message = new SimpleMailMessage();
+	    message.setText(
+	      "This is the test email template for your email:\n%s\n");
+	    return message;
 	}
 }
