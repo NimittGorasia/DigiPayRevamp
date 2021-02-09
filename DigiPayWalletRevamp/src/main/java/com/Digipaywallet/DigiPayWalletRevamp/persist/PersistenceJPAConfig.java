@@ -40,7 +40,7 @@ public class PersistenceJPAConfig {
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres?useSSL=false");
         dataSource.setUsername("postgres");
-        dataSource.setPassword("postgres");
+        dataSource.setPassword("DaalBhaat");
 
         return dataSource;
     }
