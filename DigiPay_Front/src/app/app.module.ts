@@ -11,7 +11,7 @@ import { AuthInterceptorService } from './utils/interceptor.service';
 import { LoginComponent } from './login/login.component';
 import { PrivacyPolicyComponent } from './policy-docs/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './policy-docs/terms-condition/terms-condition.component';
-import { RecaptchaModule } from 'ng-recaptcha';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +20,14 @@ import { RecaptchaModule } from 'ng-recaptcha';
     ErrorComponent,
     LoginComponent,
     PrivacyPolicyComponent,
-    TermsConditionComponent
+    TermsConditionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RecaptchaModule
+    HttpClientModule
   ],
   providers: [
     {

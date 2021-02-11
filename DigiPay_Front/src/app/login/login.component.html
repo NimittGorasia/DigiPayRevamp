@@ -17,7 +17,7 @@
           <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Password isn't valid</span>
           </div>
     <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg" [disabled]="loginForm.invalid">Sign Up</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg" [disabled]="loginForm.invalid">Login</button>
     </div>
   <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a [routerLink]="['/terms-conditions']">Terms &amp; Conditions</a>, and <a [routerLink]="['/privacy-notice']">Privacy Policy</a>.</p>
   </form>

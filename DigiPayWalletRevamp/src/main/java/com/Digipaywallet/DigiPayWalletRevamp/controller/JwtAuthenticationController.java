@@ -48,9 +48,9 @@ public class JwtAuthenticationController {
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 		
-		final String expDate = String.valueOf(jwtTokenUtil.getExpirationDateFromToken(token));
+		final String expiresIn = String.valueOf(jwtTokenUtil.JWT_TOKEN_VALIDITY);
 
-		return ResponseEntity.ok(new JwtResponse(token,expDate));
+		return ResponseEntity.ok(new JwtResponse(token,expiresIn));
 	}
 
 	private void authenticate(String username, String password) throws Exception {

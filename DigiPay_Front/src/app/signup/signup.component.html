@@ -49,21 +49,9 @@
       <span *ngIf="!signUpForm.get('confirm_password').valid && signUpForm.get('confirm_password').touched">Confirm password isn't valid</span>
         </div>
 		<div class="form-group">
-      <re-captcha
-          #captchaRef="reCaptcha"
-          (resolved)="resolved($event)"
-          (error)="onError($event)"
-          errorMode="handled"
-          siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-          size="invisible"
-      ></re-captcha>
-      <input type="hidden" formControlName="recaptcha" value=captchaRef>
-      <button id="recaptcha-submit" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" type="submit" class="btn btn-primary btn-block btn-lg" [disabled]="signUpForm.invalid">Sign Up</button>
+      <button type="submit" class="btn btn-primary btn-block btn-lg" [disabled]="signUpForm.invalid">Sign Up</button>
     </div>
 		<p class="small text-center">By clicking the Sign Up button, you agree to our <br><a [routerLink]="['/terms-conditions']">Terms &amp; Conditions</a>, and <a [routerLink]="['/privacy-notice']">Privacy Policy</a>.</p>
     </form>
 	<div class="text-center">Already have an account? <a [routerLink]="['/login']">Login here</a>.</div>
 </div>
-<!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-  data-bind="recaptcha-submit" data-callback="captchaSubmit">
-</div> -->
