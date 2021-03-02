@@ -1,0 +1,71 @@
+<div class="addBooks-form">
+<form [formGroup] ="addBookForm" (ngSubmit)="onAddBook()"> 
+  <div class="form-group">
+    <div class="input-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" 
+        name="title"
+        formControlName="title">
+    </div>
+      <span *ngIf = "addBookForm.get('title').touched && addBookForm.get('title').invalid ">
+          Title is required</span>  
+  </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" 
+        name="description"
+        formControlName="description">
+        <span *ngIf = "addBookForm.get('description').touched && addBookForm.get('description').invalid ">
+            Description is required</span>
+      </div>
+    </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <label for="image">Image</label>
+          <input type="text" class="form-control" id="image" 
+          name="image"
+          formControlName="image">
+          <span *ngIf = "addBookForm.get('image').touched && addBookForm.get('image').invalid ">
+              Image is required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+        <label for="price">Price</label>
+        <input type="number" step="0.01" class="form-control" id="price" 
+        name="price"
+        formControlName="price">
+        <span *ngIf = "addBookForm.get('price').touched && addBookForm.get('price').invalid ">
+            Price is required</span>
+            </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" 
+        name="author"
+        formControlName="author">
+        <span *ngIf = "addBookForm.get('author').touched && addBookForm.get('author').invalid ">
+            Author is required</span>
+      </div>
+          </div>
+
+      <div class="form-group">
+        <div class="input-group">
+        <label for="genre">Genre</label>
+          <input type="text" class="form-control" id="genre" 
+          name="genre"
+          formControlName="genre">
+          <span *ngIf = "addBookForm.get('genre').touched && addBookForm.get('genre').invalid ">
+              Genre is required</span>
+      </div>
+      </div>
+
+    <button type="submit" class="btn btn-primary" [disabled] = "addBookForm.invalid">Submit</button>
+  </form>
+</div>

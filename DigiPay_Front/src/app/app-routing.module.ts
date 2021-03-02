@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddBooksComponent } from './add-books/add-books.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'home', canActivate: [AuthGuardService], component: HomeComponent},
   {path: 'privacy-notice', component: PrivacyPolicyComponent},
   {path: 'terms-conditions', component: TermsConditionComponent},
+  {path: 'add-books', component: AddBooksComponent},
   {path: '**', component: ErrorComponent}
 ];
 

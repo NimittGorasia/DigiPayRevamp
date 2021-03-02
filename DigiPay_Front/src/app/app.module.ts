@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { PrivacyPolicyComponent } from './policy-docs/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './policy-docs/terms-condition/terms-condition.component';
 import { HomeComponent } from './home/home.component';
+import { AddBooksComponent } from './add-books/add-books.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     PrivacyPolicyComponent,
     TermsConditionComponent,
-    HomeComponent
+    HomeComponent,
+    AddBooksComponent
   ],
   imports: [
     BrowserModule,

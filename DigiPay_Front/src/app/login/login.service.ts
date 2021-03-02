@@ -22,7 +22,7 @@ export class LoginService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(data: JSON) {
-    this.url='http://localhost:8080/api/login/authenticate';
+    this.url='http://localhost:8082/api/login/authenticate';
     console.log('In service:', data);
     return this.http.post<AuthResponseData>(this.url, data)
           .pipe(
