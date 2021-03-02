@@ -2,15 +2,14 @@ DROP TABLE gen_users;
 
 
 CREATE TABLE gen_users (
-	users_id numeric (16) PRIMARY KEY,
-	first_name VARCHAR ( 100 ) NOT NULL,
-	last_name VARCHAR ( 100 ) NOT NULL,
-	password VARCHAR ( 70 ) NOT NULL,
-	phone numeric (10) NOT NULL UNIQUE,
-	email VARCHAR ( 255 ) NOT NULL,
-	created_on TIMESTAMP NOT NULL,
-	isActive VARCHAR ( 1 ) NOT NULL, 
-    last_login TIMESTAMP 
+	book_id numeric (16) PRIMARY KEY,
+	title VARCHAR ( 100 ) NOT NULL,
+	description VARCHAR ( 1000 ) NOT NULL,
+	image VARCHAR ( 100 ) NOT NULL,
+	price numeric (16,2) NOT NULL,
+	author VARCHAR ( 100 ) NOT NULL,
+	genre VARCHAR ( 100 ) NOT NULL,
+	created_on TIMESTAMP NOT NULL
 );
 
 alter table gen_users alter column password type character varying(70);
@@ -35,3 +34,20 @@ ALTER COLUMN email SET NOT NULL;
 
 ALTER TABLE gen_users
 ALTER COLUMN first_name SET NOT NULL;
+
+
+CREATE TABLE book_details (
+	book_id numeric (16) PRIMARY KEY,
+	title VARCHAR ( 100 ) NOT NULL,
+	description VARCHAR ( 1000 ) NOT NULL,
+	image VARCHAR ( 100 ) NOT NULL,
+	price numeric (16,2) NOT NULL,
+	author VARCHAR ( 100 ) NOT NULL,
+	genre VARCHAR ( 100 ) NOT NULL,
+	created_on TIMESTAMP NOT NULL
+);
+
+
+CREATE SEQUENCE book_details_seq
+INCREMENT 1
+START 1000;
