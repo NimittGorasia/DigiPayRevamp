@@ -22,8 +22,8 @@ import com.paypal.base.rest.PayPalRESTException;
 @Service
 public class PaymentsServiceImpl implements PaymentsService {
 	
-	private final String clientId = "Aag2GIkCjNwO747XvbKHf4nUcXoWJgFtpgk1eRh1OwhFAh5aG6ZEmyLtBCy6FlTUbbc08jCRSMVm-Dy_";
-	private final String clientSecret = "EBh54BmCsiLiynOt_nrn2Cc8DesW9EHr_mBPu5ZPo_csG6haG1e7EjWrnnxa6_5KYZP6cCs4-fTtr9Kz";
+	private final String clientId = "";
+	private final String clientSecret = "";
 
 	@Override
 	public Map<String, Object> createPayment(String sum) {
