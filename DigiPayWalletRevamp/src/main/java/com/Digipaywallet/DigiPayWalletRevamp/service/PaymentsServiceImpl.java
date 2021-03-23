@@ -5,10 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Service;
 
+import com.Digipaywallet.DigiPayWalletRevamp.vo.PaymentsVO;
 import com.paypal.api.payments.Amount;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payer;
@@ -70,13 +69,13 @@ public class PaymentsServiceImpl implements PaymentsService {
 		    return response;
 		}
 	
-	public Map<String, Object> completePayment(HttpServletRequest req){
-	    Map<String, Object> response = new HashMap();
+	public Map<String, Object> completePayment(PaymentsVO paymentsVO){
+	    Map<String, Object> response = new HashMap<>();
 	    Payment payment = new Payment();
-	    payment.setId(req.getParameter("paymentId"));
+	    payment.setId(paymentsVO.getPaymentId());
 
 	    PaymentExecution paymentExecution = new PaymentExecution();
-	    paymentExecution.setPayerId(req.getParameter("PayerID"));
+	    paymentExecution.setPayerId(paymentsVO.getPayerId());
 	    try {
 	        APIContext context = new APIContext(this.clientId, this.clientSecret, "sandbox");
 	        Payment createdPayment = payment.execute(context, paymentExecution);
