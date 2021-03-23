@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Service;
+
 import com.paypal.api.payments.Amount;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payer;
@@ -17,15 +19,17 @@ import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 
+@Service
 public class PaymentsServiceImpl implements PaymentsService {
 	
-	
+	private final String clientId = "Aag2GIkCjNwO747XvbKHf4nUcXoWJgFtpgk1eRh1OwhFAh5aG6ZEmyLtBCy6FlTUbbc08jCRSMVm-Dy_";
+	private final String clientSecret = "EBh54BmCsiLiynOt_nrn2Cc8DesW9EHr_mBPu5ZPo_csG6haG1e7EjWrnnxa6_5KYZP6cCs4-fTtr9Kz";
 
 	@Override
 	public Map<String, Object> createPayment(String sum) {
 		    Map<String, Object> response = new HashMap<>();
 		    Amount amount = new Amount();
-		    amount.setCurrency("INR");
+		    amount.setCurrency("USD");
 		    amount.setTotal(sum);
 		    Transaction transaction = new Transaction();
 		    transaction.setAmount(amount);
@@ -41,8 +45,8 @@ public class PaymentsServiceImpl implements PaymentsService {
 		    payment.setTransactions(transactions);
 
 		    RedirectUrls redirectUrls = new RedirectUrls();
-		    redirectUrls.setCancelUrl("http://localhost:4200/cancel");
-		    redirectUrls.setReturnUrl("http://localhost:4200/");
+		    redirectUrls.setCancelUrl("http://localhost:4200/add-money");
+		    redirectUrls.setReturnUrl("http://localhost:4200/add-money");
 		    payment.setRedirectUrls(redirectUrls);
 		    Payment createdPayment;
 		    try {
@@ -74,7 +78,7 @@ public class PaymentsServiceImpl implements PaymentsService {
 	    PaymentExecution paymentExecution = new PaymentExecution();
 	    paymentExecution.setPayerId(req.getParameter("PayerID"));
 	    try {
-	        APIContext context = new APIContext(clientId, clientSecret, "sandbox");
+	        APIContext context = new APIContext(this.clientId, this.clientSecret, "sandbox");
 	        Payment createdPayment = payment.execute(context, paymentExecution);
 	        if(createdPayment!=null){
 	            response.put("status", "success");

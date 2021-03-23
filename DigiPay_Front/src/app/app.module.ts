@@ -13,6 +13,9 @@ import { PrivacyPolicyComponent } from './policy-docs/privacy-policy/privacy-pol
 import { TermsConditionComponent } from './policy-docs/terms-condition/terms-condition.component';
 import { HomeComponent } from './home/home.component';
 import { AddBooksComponent } from './add-books/add-books.component';
+import { AddMoneyComponent } from './add-money/add-money.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { AddBooksComponent } from './add-books/add-books.component';
     PrivacyPolicyComponent,
     TermsConditionComponent,
     HomeComponent,
-    AddBooksComponent
+    AddBooksComponent,
+    AddMoneyComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

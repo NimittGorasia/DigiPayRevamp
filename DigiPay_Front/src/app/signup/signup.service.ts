@@ -10,7 +10,7 @@ export class SignupService {
   constructor(private http: HttpClient) { }
 
   signUp(data: JSON) {
-    this.url='http://localhost:8080/api/signUp/register';
+    this.url='http://localhost:8082/api/signUp/register';
     console.log('In service:', data);
     return this.http.post(this.url, data);
   }

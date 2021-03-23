@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login/login.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
 
-
+  logout() {
+    this.loginService.logout();
+  }
 }

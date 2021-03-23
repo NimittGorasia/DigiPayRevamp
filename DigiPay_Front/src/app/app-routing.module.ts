@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddBooksComponent } from './add-books/add-books.component';
+import { AddMoneyComponent } from './add-money/add-money.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'privacy-notice', component: PrivacyPolicyComponent},
   {path: 'terms-conditions', component: TermsConditionComponent},
   {path: 'add-books', component: AddBooksComponent},
+  {path: 'add-money', component: AddMoneyComponent},
   {path: '**', component: ErrorComponent}
 ];
 
