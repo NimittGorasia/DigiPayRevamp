@@ -10,7 +10,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(private loginService: LoginService) { }
 
+  user;
   ngOnInit(): void {
+    this.loginService.user.subscribe(resp => {
+      this.user = resp;
+    });
   }
 
   logout() {

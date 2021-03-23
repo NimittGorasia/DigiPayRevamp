@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { PrivacyPolicyComponent } from './policy-docs/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './policy-docs/terms-condition/terms-condition.component';
 import { SignupComponent } from './signup/signup.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,8 +18,10 @@ const routes: Routes = [
   {path: 'home', canActivate: [AuthGuardService], component: HomeComponent},
   {path: 'privacy-notice', component: PrivacyPolicyComponent},
   {path: 'terms-conditions', component: TermsConditionComponent},
-  {path: 'add-books', component: AddBooksComponent},
-  {path: 'add-money', component: AddMoneyComponent},
+  {path: 'add-books', canActivate: [AuthGuardService], component: AddBooksComponent},
+  {path: 'add-money',canActivate: [AuthGuardService], component: AddMoneyComponent},
+  {path: 'success',canActivate: [AuthGuardService], component: TransactionComponent},
+  {path: 'cancel',canActivate: [AuthGuardService], component: TransactionComponent},
   {path: '**', component: ErrorComponent}
 ];
 

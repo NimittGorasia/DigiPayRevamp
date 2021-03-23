@@ -15,9 +15,7 @@ export class AddMoneyComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.route.params.subscribe(resp => {
-      console.log('params',resp);
-    })
+
   }
 
   doTrxn() {

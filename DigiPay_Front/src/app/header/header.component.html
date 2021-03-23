@@ -5,10 +5,10 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/add-money']">Add Money</a>
+      <a *ngIf="user" class="nav-link" [routerLink]="['/add-money']">Add Money</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/transfer']">Transfer</a>
+      <a *ngIf="user" class="nav-link" [routerLink]="['/transfer']">Transfer</a>
     </li>
   </ul>
 
@@ -16,7 +16,7 @@
     <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
     <li class="nav-item">
-      <a class="nav-link pointer" (click)="logout()">Logout</a>
+      <a *ngIf="user" class="nav-link pointer" (click)="logout()">Logout</a>
     </li>
   </ul>
 </nav>

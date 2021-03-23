@@ -16,6 +16,8 @@ import { AddBooksComponent } from './add-books/add-books.component';
 import { AddMoneyComponent } from './add-money/add-money.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FooterComponent } from './footer/footer.component';
     AddBooksComponent,
     AddMoneyComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TransactionComponent,
+    TransactionHistoryComponent
   ],
   imports: [
     BrowserModule,
