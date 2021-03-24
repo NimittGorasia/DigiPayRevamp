@@ -20,16 +20,18 @@ export class TransactionComponent implements OnInit {
     let paymentId='';
     let payerId='';
     const resp = this.router.url.split('?')[1].split('&');
-    if(this.router.url.indexOf('cancel'))
+    if(this.router.url.indexOf('cancel')!==-1)
     {
       token = resp[0].split('=')[1];
     } else {
       paymentId = resp[0].split('=')[1];
       token = resp[1].split('=')[1];
       payerId = resp[2].split('=')[1];
-
+      console.log('payerid:',payerId)
     }
     console.log('resp',resp);
-    this.trxnService.completePayment({token: token, paymentId: paymentId, payerId: payerId})
+    this.trxnService.completePayment({token: token, paymentId: paymentId, payerId: payerId}).subscribe(result => {
+      console.log('complete payment:',result);
+    });
   }
 }
