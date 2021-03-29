@@ -12,6 +12,7 @@ export class TransactionComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private trxnService: TransactionService) { }
 
   ngOnInit(): void {
+
     this.completePayment();
   }
 

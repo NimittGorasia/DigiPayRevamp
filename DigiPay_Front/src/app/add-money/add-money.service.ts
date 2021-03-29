@@ -8,8 +8,8 @@ export class AddMoneyService {
 
   constructor(private http: HttpClient) { }
 
-  doTrxn() {
-    return this.http.post('http://localhost:8082/payments/make/payment', {sum: 100});
+  doTrxn(sum) {
+    return this.http.post('http://localhost:8082/payments/make/payment', sum);
   }
 
 }

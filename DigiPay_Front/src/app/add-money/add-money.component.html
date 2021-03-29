@@ -1,1 +1,21 @@
-<button class="btn btn-primary m-1" (click)="doTrxn()">Add Rs.100</button>
+<div class="signup-form">
+  <form [formGroup]="addToWallet" (ngSubmit)="doTrxn()">
+  <h2>Add Money to Wallet</h2>
+  <p class="lead">Add credits to your DigiPay balance</p>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-inr"></i></span>
+          <input type="text" class="form-control" formControlName="sum" name="sum" placeholder="Enter an amount">
+        </div>
+        <span *ngIf="!addToWallet.get('sum').valid && addToWallet.get('sum').touched">Enter a valid amount and it must be greater than 10!</span>
+      </div>
+    <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" [disabled]="addToWallet.invalid">Add</button>
+    </div>
+  <p class="small text-center">Once loaded, your balance cannot be cancelled or transffered to your bank account.</p>
+  </form>
+</div>
+
+
+
+<!-- <button class="btn btn-primary m-1" (click)="doTrxn()">Add Rs.100</button> -->
