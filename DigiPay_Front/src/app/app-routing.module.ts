@@ -10,6 +10,8 @@ import { PrivacyPolicyComponent } from './policy-docs/privacy-policy/privacy-pol
 import { TermsConditionComponent } from './policy-docs/terms-condition/terms-condition.component';
 import { SignupComponent } from './signup/signup.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { ViewPassbookComponent } from './view-passbook/view-passbook.component';
+import { ViewPassbookService } from './view-passbook/view-passbook.service';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -22,6 +24,7 @@ const routes: Routes = [
   {path: 'add-money',canActivate: [AuthGuardService], component: AddMoneyComponent},
   {path: 'success',canActivate: [AuthGuardService], component: TransactionComponent},
   {path: 'cancel',canActivate: [AuthGuardService], component: TransactionComponent},
+  {path: 'view-passbook',canActivate: [AuthGuardService], component: ViewPassbookComponent},
   {path: '**', component: ErrorComponent}
 ];
 

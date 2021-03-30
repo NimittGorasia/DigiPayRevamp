@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { ViewPassbookComponent } from './view-passbook/view-passbook.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
     HeaderComponent,
     FooterComponent,
     TransactionComponent,
-    TransactionHistoryComponent
+    TransactionHistoryComponent,
+    ViewPassbookComponent
   ],
   imports: [
     BrowserModule,
