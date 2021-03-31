@@ -8,5 +8,7 @@ import com.Digipaywallet.DigiPayWalletRevamp.vo.UsersVO;
 public interface SignUpRepository extends CrudRepository<GenUsers, Long> {
 
 	public GenUsers findByPhone(Long username);
+	
+	public GenUsers findByUsersId(Long userId);
 
 }

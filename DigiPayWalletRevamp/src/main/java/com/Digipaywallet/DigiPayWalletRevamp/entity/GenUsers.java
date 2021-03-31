@@ -51,6 +51,9 @@ public class GenUsers implements Serializable {
 	@Column(name="last_name")
 	private String lastName;
 	
+	@Column(name="balance")
+	private Double balance;
+	
 	public GenUsers() {
 		// empty constructor
 	}
@@ -125,6 +128,14 @@ public class GenUsers implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
 	}
 
 }

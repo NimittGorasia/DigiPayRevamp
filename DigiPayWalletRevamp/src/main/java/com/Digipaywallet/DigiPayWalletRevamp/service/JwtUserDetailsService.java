@@ -33,11 +33,21 @@ public class JwtUserDetailsService implements UserDetailsService {
 		return new org.springframework.security.core.userdetails.User(String.valueOf(genUsers.getPhone()), genUsers.getPassword(),
 				new ArrayList<>());
 	}
+	
+	public UsersVO loadUserId(String username) {
+		UsersVO userVO = null;
+		try {
+			GenUsers genUsers = signUpRepository.findByPhone(Long.parseLong(username));
+			if (genUsers != null) {
+				userVO = new UsersVO();
+				userVO.setUserId(String.valueOf(genUsers.getUsersId()));
+			}
+		}
+		catch(Exception e) {
+			
+		}
+		return userVO;
+	}
 	 
-	/*
-	 * public DAOUser save(UserDTO user) { DAOUser newUser = new DAOUser();
-	 * newUser.setUsername(user.getUsername());
-	 * newUser.setPassword(bcryptEncoder.encode(user.getPassword())); return
-	 * userDao.save(newUser); }
-	 */
+	
 }

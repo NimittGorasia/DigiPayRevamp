@@ -1,7 +1,5 @@
 package com.Digipaywallet.DigiPayWalletRevamp.controller;
 
-import java.util.Objects;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +17,7 @@ import com.Digipaywallet.DigiPayWalletRevamp.config.JwtTokenUtil;
 import com.Digipaywallet.DigiPayWalletRevamp.service.JwtUserDetailsService;
 import com.Digipaywallet.DigiPayWalletRevamp.vo.JwtRequest;
 import com.Digipaywallet.DigiPayWalletRevamp.vo.JwtResponse;
+import com.Digipaywallet.DigiPayWalletRevamp.vo.UsersVO;
 
 
 
@@ -45,11 +44,13 @@ public class JwtAuthenticationController {
 
 		final UserDetails userDetails = userDetailsService
 				.loadUserByUsername(authenticationRequest.getUsername());
+		
+		final UsersVO userVO = userDetailsService.loadUserId(authenticationRequest.getUsername());
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 		
 		final String expiresIn = String.valueOf(jwtTokenUtil.JWT_TOKEN_VALIDITY);
-
+		
 		return ResponseEntity.ok(new JwtResponse(token,expiresIn));
 	}
 

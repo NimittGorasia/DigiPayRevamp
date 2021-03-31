@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.Digipaywallet.DigiPayWalletRevamp.service.JwtUserDetailsService;
+import com.Digipaywallet.DigiPayWalletRevamp.vo.BaseVO;
+import com.Digipaywallet.DigiPayWalletRevamp.vo.UsersVO;
 
 import io.jsonwebtoken.ExpiredJwtException;
 
@@ -69,6 +71,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 				// that the current user is authenticated. So it passes the
 				// Spring Security Configurations successfully.
 				SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+				
+				final UsersVO userVO = jwtUserDetailsService.loadUserId(username);
+				request.setAttribute("userId", userVO.getUserId());
 			}
 		}
 		chain.doFilter(request, response);
